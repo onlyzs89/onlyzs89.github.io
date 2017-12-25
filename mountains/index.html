@@ -16,7 +16,10 @@
     <link rel="shortcut icon" href="assets/img/favicon.ico">
     
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     
     <link href="assets/css/index.css" rel="stylesheet" type="text/css">
     
@@ -167,11 +170,11 @@
                 var y=mercator([d[3], d[2]])[1];
                 var r;
                 switch(d[6]){
-                  case "1": r=(3+d[4]/5000)*2;break;
-                  case "2": r=(2.8+d[4]/5000)*2;break;
-                  case "3": r=(2.5+d[4]/5000)*2;break;
-                  case "4": r=(2+d[4]/5000)*2;break;
-                  default: r=(1.8+d[4]/5000)*2;
+                  case "1": r=(2.2+d[4]/5000)*2;break;
+                  case "2": r=(2.0+d[4]/5000)*2;break;
+                  case "3": r=(1.8+d[4]/5000)*2;break;
+                  case "4": r=(1.5+d[4]/5000)*2;break;
+                  default: r=(1.2+d[4]/5000)*2;
                 }
                 return x+","+(y-r/Math.sqrt(3))+" "+(x+r/Math.sqrt(3))+","+(y+r/Math.sqrt(3)/2)+" "+(x-r/Math.sqrt(3))+","+(y+r/Math.sqrt(3)/2);
               })
@@ -222,12 +225,12 @@
               .style("opacity", 0.9)
               .attr('points', function(d){
                 var r;
-                switch(d.classify){
-                  case "1": r=3*4+d[4]/5000;break;
-                  case "2": r=2.8*4+d[4]/5000;break;
-                  case "3": r=2.5*4+d[4]/5000;break;
-                  case "4": r=2*4+d[4]/5000;break;
-                  default: r=1.8*4+d[4]/5000;
+                switch(d[6]){
+                  case "1": r=2.2*4+d[4]/5000;break;
+                  case "2": r=2.0*4+d[4]/5000;break;
+                  case "3": r=1.8*4+d[4]/5000;break;
+                  case "4": r=1.5*4+d[4]/5000;break;
+                  default: r=1.2*4+d[4]/5000;
                 }
                 var x=mercator([d[3], d[2]])[0];
                 var y=mercator([d[3], d[2]])[1];
@@ -247,12 +250,12 @@
                 var x=mercator([d[3], d[2]])[0];
                 var y=mercator([d[3], d[2]])[1];
                 var r;
-                switch(d.classify){
-                  case "1": r=(3+d[4]/5000)*4/trans.k;break;
-                  case "2": r=(2.8+d[4]/5000)*4/trans.k;break;
-                  case "3": r=(2.5+d[4]/5000)*4/trans.k;break;
-                  case "4": r=(2+d[4]/5000)*4/trans.k;break;
-                  default: r=(1.8+d[4]/5000)*4/trans.k;
+                switch(d[6]){
+                  case "1": r=(2.2+d[4]/5000)*4/trans.k;break;
+                  case "2": r=(2.0+d[4]/5000)*4/trans.k;break;
+                  case "3": r=(1.8+d[4]/5000)*4/trans.k;break;
+                  case "4": r=(1.5+d[4]/5000)*4/trans.k;break;
+                  default: r=(1.2+d[4]/5000)*4/trans.k;
                 }
                 return x+","+(y-r/Math.sqrt(3))+" "+(x+r/Math.sqrt(3))+","+(y+r/Math.sqrt(3)/2)+" "+(x-r/Math.sqrt(3))+","+(y+r/Math.sqrt(3)/2);
               })
@@ -269,7 +272,6 @@
         };
         
         $(".list-item").on('click',function(){
-          console.log("test");
           $("#maker_"+$(this).attr("id")).d3Click();
         });
             
