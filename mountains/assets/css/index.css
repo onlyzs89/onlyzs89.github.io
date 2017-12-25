@@ -61,10 +61,10 @@ font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, 
   cursor: pointer;
   position: fixed;
   top: 60px;
-  right: -220px;
+  right: -120px;
   height: 100%;
   background: rgba(150, 150, 150, 0.8);
-  width: 250px;
+  width: 150px;
   color: #444;
   font-size: 14px;
   overflow-y:auto;
@@ -111,6 +111,5 @@ a {
 
 /* tooltip card */
 .card-block{
-  margin-top: 10px;
-  margin-bottom:5px;
+  padding:0.2rem;
 }
