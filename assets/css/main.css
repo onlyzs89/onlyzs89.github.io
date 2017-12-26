@@ -1311,7 +1311,7 @@
 
 	body {
 		background-color: #183026;
-		background-image: url("images/overlay.png"), url("../images/bg.jpg");
+		background-image: url("images/overlay.png"), url("../img/bg.jpg");
 		background-repeat: repeat, no-repeat;
 		background-size: auto, cover;
 		background-position: top left, center 0;
@@ -2531,3 +2531,15 @@
 			}
 
 	}
+  
+  /* add by onlyzs*/
+  .linker {
+      border-bottom: dotted 1px rgba(53, 184, 143, 0);
+  }
+  
+  .quote {
+      padding: 0 0 0 1em;
+      font-size: 80%;
+  }
+  
+  
