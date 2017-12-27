@@ -1,26 +1,4 @@
 /************************/
-/* navbar */
-#mainNav {
-position: absolute;
-border-bottom: 1px solid #eeeeee;
-background-color: rgba(255, 255, 255, 0.8);
-font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif; }
-#mainNav .navbar-brand {
-  font-weight: 800;
-  color: #444444; }
-#mainNav .navbar-toggler {
-  font-size: 12px;
-  font-weight: 800;
-  padding: 13px;
-  text-transform: uppercase;
-  color: #444444; }
-#mainNav .navbar-nav > li.nav-item > a {
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase; }
-
-/************************/
 /* tooltip */
 .d3-tip {
   line-height: 1;
