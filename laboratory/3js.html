@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js canvas - interactive - cubes</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				font-family: Monospace;
+				background-color: #f0f0f0;
+				margin: 0px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+
+		<script src="assets/js/three.js"></script>
+		<script src="assets/js/CanvasRenderer.js"></script>
+		<script src="assets/js/Projector.js"></script>
+		<script src="assets/js/OrbitControls.js"></script>
+
+
+		<script>
+
+			var container, stats;
+			var camera, scene, renderer;
+
+			var raycaster;
+			var mouse;
+
+      var cubes = {};
+
+			init();
+			animate();
+      
+      function randint(min, max){
+        var a = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+        return a;
+      }
+      
+      function addCube(x, y, z, r=10){
+        //console.log(x+" "+y+" "+z);
+        var geometry = new THREE.OctahedronGeometry( r );
+        var object = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff, opacity: 0.8 } ) );
+        object.position.x = x;
+        object.position.y = y;
+        object.position.z = z;
+        object.castShadow = true;
+        scene.add( object );
+        cubes[object.id] = object;
+      }
+      
+      function delCube(object){
+        scene.remove( object );
+        delete cubes[object.id];
+        r=object.geometry.parameters.radius;
+        material=object.material;
+        material.opacity*=0.5;
+        
+        var geometry = new THREE.PlaneGeometry( r, r );
+        var plane = new THREE.Mesh( geometry, material );
+        plane.rotation.y = Math.PI;
+        plane.rotation.x = -Math.PI/2;
+        plane.position.x = object.position.x;
+        plane.position.y = 1000;
+        plane.position.z = object.position.z;
+        plane.receiveShadow  = true;
+        scene.add( plane );
+        
+      }
+      
+      
+
+			function init() {
+
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				scene = new THREE.Scene();
+				scene.background = new THREE.Color( 0xf0f0f0 );
+        
+        camera = new THREE.PerspectiveCamera( 1000, window.innerWidth / window.innerHeight, 1, 10000 );
+				camera.position.set( 800, -1000, 800 );
+        camera.lookAt(scene.position);
+        
+        var light = new THREE.PointLight( 0xff0000, 1000, 10000 );
+        light.position.set( 1000, -1000, 0 );
+        light.castShadow   = true;
+        scene.add( light );
+        
+        var light = new THREE.AmbientLight( 0x404040 ); // soft white light
+        light.castShadow   = true;
+        scene.add( light );
+        
+        //var axes = new THREE.AxisHelper(500);
+        //scene.add(axes);
+        
+        var geometry = new THREE.PlaneGeometry( 3000, 3000 );
+        var plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: 0xffffff, opacity: Math.random() } ) );
+        plane.position.x = 0;
+        plane.position.y = 1000;
+        plane.position.z = 0;
+        plane.rotation.y = Math.PI;
+        plane.rotation.x = -Math.PI/2;
+        plane.receiveShadow  = true;
+        scene.add( plane );
+        
+				//
+
+				raycaster = new THREE.Raycaster();
+				mouse = new THREE.Vector2();
+
+				renderer = new THREE.CanvasRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.shadowMapEnabled = true;
+				container.appendChild( renderer.domElement );
+
+        // controls
+
+				var controls = new THREE.OrbitControls( camera, renderer.domElement );
+				controls.minDistance = 1;
+				controls.maxDistance = 1000;
+				//controls.maxPolarAngle = Math.PI / 2;
+        /*controls.enablePan = false;
+        controls.mouseButtons = {
+          ORBIT: THREE.MOUSE.RIGHT,
+          ZOOM: THREE.MOUSE.MIDDLE
+        };*/
+        
+        
+        
+				//stats = new Stats();
+				//container.appendChild( stats.dom );
+
+				//document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize, false );
+        
+        setInterval(function(){
+            r = randint(10, 50)
+            addCube(x=randint(-1000, 1000), y=-1000, z=randint(-1000, 1000), r=r);
+        }, 100);
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function onDocumentMouseDown( event ) {
+
+			}
+
+			//
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				render();
+				//stats.update();
+
+			}
+
+			var radius = 600;
+			var theta = 0;
+
+			function render() {
+        if(cubes){
+          Object.keys(cubes).forEach(function(key){
+            dist=randint(1, 8)
+            cubes[key].position.y+=dist;
+            if(cubes[key].position.y>1000) delCube(cubes[key]);
+          });
+        }
+
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+
+	</body>
+</html>
