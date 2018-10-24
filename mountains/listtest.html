@@ -39,23 +39,9 @@
 
     table {
       color:#555555;
-      margin:1%;
     }
     body{
       min-width:600px;
-    }
-
-    .trailroutes {
-      color:#d2691e;
-    }
-    .m100 {
-      color:#191970;
-    }
-    .m200 {
-      color:#006400;
-    }
-    .m300 {
-      color:#8b0000;
     }
     </style>
   </head>
@@ -154,18 +140,38 @@
       $('#2018').csv2table('assets/data/list_2018.csv');
       $('#2018-tab').on("click",function(){
         $('#2018').csv2table('assets/data/list_2018.csv');
+        $('#2017').html();
+        $('#2016').html();
+        $('#2015').html();
+        $('#2014').html();
       });
       $('#2017-tab').on("click",function(){
         $('#2017').csv2table('assets/data/list_2017.csv');
+        $('#2018').html();
+        $('#2016').html();
+        $('#2015').html();
+        $('#2014').html();
       });
       $('#2016-tab').on("click",function(){
         $('#2016').csv2table('assets/data/list_2016.csv');
+        $('#2017').html();
+        $('#2018').html();
+        $('#2015').html();
+        $('#2014').html();
       });
       $('#2015-tab').on("click",function(){
         $('#2015').csv2table('assets/data/list_2015.csv');
+        $('#2017').html();
+        $('#2016').html();
+        $('#2018').html();
+        $('#2014').html();
       });
       $('#2014-tab').on("click",function(){
         $('#2014').csv2table('assets/data/list_2014.csv');
+        $('#2017').html();
+        $('#2016').html();
+        $('#2015').html();
+        $('#2018').html();
       });
     });
     </script>
