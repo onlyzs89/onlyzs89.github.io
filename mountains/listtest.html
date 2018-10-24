@@ -152,10 +152,18 @@
     <script>
     $(function(){
       $('#2018').csv2table('assets/data/list_2018.csv');
-      $('#2017').csv2table('assets/data/list_2017.csv');
-      $('#2016').csv2table('assets/data/list_2016.csv');
-      $('#2015').csv2table('assets/data/list_2015.csv');
-      $('#2014').csv2table('assets/data/list_2014.csv');
+      $('#2017-tab').on("click",function(){
+        $('#2017').csv2table('assets/data/list_2017.csv');
+      });
+      $('#2016-tab').on("click",function(){
+        $('#2016').csv2table('assets/data/list_2016.csv');
+      });
+      $('#2015-tab').on("click",function(){
+        $('#2015').csv2table('assets/data/list_2015.csv');
+      });
+      $('#2014-tab').on("click",function(){
+        $('#2014').csv2table('assets/data/list_2014.csv');
+      });
     });
     </script>
 
