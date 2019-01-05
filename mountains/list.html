@@ -86,7 +86,10 @@
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" id="2018-tab" data-toggle="tab" href="#2018" role="tab" aria-controls="tab" aria-expanded="true">2018年</a>
+                <a class="nav-link active" id="2019-tab" data-toggle="tab" href="#2019" role="tab" aria-controls="tab" aria-expanded="true">2019年</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="2018-tab" data-toggle="tab" href="#2018" role="tab" aria-controls="tab" aria-expanded="true">2018年</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="2017-tab" data-toggle="tab" href="#2017" role="tab" aria-controls="2017" aria-expanded="true">2017年</a>
@@ -105,8 +108,11 @@
 
         <div class="tab-content">
 
+            <!-- 2019 -->
+            <div class="tab-pane fade show active" id="2019" role="tabpanel" aria-labelledby="2019-tab"></div>
+
             <!-- 2018 -->
-            <div class="tab-pane fade show active" id="2018" role="tabpanel" aria-labelledby="2018-tab"></div>
+            <div class="tab-pane fade" id="2018" role="tabpanel" aria-labelledby="2018-tab"></div>
 
             <!-- 2017 -->
             <div class="tab-pane fade" id="2017" role="tabpanel" aria-labelledby="2017-tab"></div>
@@ -121,7 +127,7 @@
             <div class="tab-pane fade" id="2014" role="tabpanel" aria-labelledby="2014-tab"></div>
        </div>
     </div>
-    <p style="text-align:right;">最終更新日：2018/10/27</p>
+    <p style="text-align:right;">最終更新日：2019/01/05</p>
 </div>
     <div id="footer">
         Copyright &copy; 2017-2018 <a href="../index.html" target="_blank">onlyzs</a> | All Rights Reserved
@@ -137,9 +143,18 @@
     <script src="assets/js/jquery.csv2table.js"></script>
     <script>
     $(function(){
-      $('#2018').csv2table('assets/data/list_2018.csv');
+      $('#2019').csv2table('assets/data/list_2019.csv');
+      $('#2019-tab').on("click",function(){
+        $('#2019').csv2table('assets/data/list_2019.csv');
+        $('#2018').html();
+        $('#2017').html();
+        $('#2016').html();
+        $('#2015').html();
+        $('#2014').html();
+      });
       $('#2018-tab').on("click",function(){
         $('#2018').csv2table('assets/data/list_2018.csv');
+        $('#2019').html();
         $('#2017').html();
         $('#2016').html();
         $('#2015').html();
@@ -147,6 +162,7 @@
       });
       $('#2017-tab').on("click",function(){
         $('#2017').csv2table('assets/data/list_2017.csv');
+        $('#2019').html();
         $('#2018').html();
         $('#2016').html();
         $('#2015').html();
@@ -154,6 +170,7 @@
       });
       $('#2016-tab').on("click",function(){
         $('#2016').csv2table('assets/data/list_2016.csv');
+        $('#2019').html();
         $('#2017').html();
         $('#2018').html();
         $('#2015').html();
@@ -161,6 +178,7 @@
       });
       $('#2015-tab').on("click",function(){
         $('#2015').csv2table('assets/data/list_2015.csv');
+        $('#2019').html();
         $('#2017').html();
         $('#2016').html();
         $('#2018').html();
@@ -168,6 +186,7 @@
       });
       $('#2014-tab').on("click",function(){
         $('#2014').csv2table('assets/data/list_2014.csv');
+        $('#2019').html();
         $('#2017').html();
         $('#2016').html();
         $('#2015').html();
