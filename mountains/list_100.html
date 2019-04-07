@@ -17,7 +17,7 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-    
+
         <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109227341-1"></script>
     <script>
@@ -27,7 +27,7 @@
 
       gtag('config', 'UA-109227341-1');
     </script>
-    
+
     <style>
     #footer {
         background-color:#f7f7f7;
@@ -43,17 +43,20 @@
   </head>
 
   <body background="assets/img/bg.png">
-  
+
     <nav class="navbar navbar-expand-lg navbar-light bg-faded" style="background-color:rgba(0,0,0,0.1);">
       <a class="navbar-brand" href="index.html"><img src="assets/img/favicon.ico" width="25px" /> 登山記録</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" href="list.html">山行一覧</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="plan.html">山行計画</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#">百名山登頂記録 <span class="sr-only">(current)</span></a>
@@ -185,17 +188,17 @@
 <tr><td>	6	</td><td>	トムラウシ山	</td><td>	2141m	</td><td>		</td><td>		</td><td>		</td></tr>
 <tr><td>	7	</td><td>	十勝岳	</td><td>	2077m	</td><td>		</td><td>		</td><td>		</td></tr>
 <tr><td>	8	</td><td>	幌尻岳	</td><td>	2052m	</td><td>		</td><td>		</td><td>		</td></tr>
-			
+
                 </tbody>
             </table>
         </div>
     </div>
-    
+
     <div id="footer">
-        Copyright &copy; 2017-2018 <a href="../index.html" target="_blank">onlyzs</a> | All Rights Reserved 
+        Copyright &copy; 2017-2018 <a href="../index.html" target="_blank">onlyzs</a> | All Rights Reserved
     </div>
 
-    
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/tether.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
@@ -203,9 +206,9 @@
     <script src="assets/js/jquery.dataTables.min.js"></script>
     <script src="assets/js/dataTables.bootstrap4.min.js"></script>
     <script>
-    
 
-    
+
+
     $(document).ready(function() {
         $('#sort-table').DataTable({
             "bPaginate": false,
@@ -213,7 +216,7 @@
             "bAutoWidth": false,
             "bInfo": false,
         });
-        
+
     });
     </script>
 

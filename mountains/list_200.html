@@ -17,7 +17,7 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-    
+
         <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109227341-1"></script>
     <script>
@@ -27,7 +27,7 @@
 
       gtag('config', 'UA-109227341-1');
     </script>
-    
+
     <style>
     #footer {
         background-color:#f7f7f7;
@@ -55,6 +55,9 @@
           <li class="nav-item">
             <a class="nav-link" href="list.html">山行一覧</a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="plan.html">山行計画</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="list_100.html">百名山登頂記録</a>
           </li>
@@ -73,8 +76,8 @@
         </ul>
       </div>
     </nav>
-  
-  
+
+
     <div class="container">
         <h2 class="text-center" style="margin:20px">二百名山登頂記録 <span style="font-size:60%;">(15/100)</span></h2>
         <div>
@@ -186,17 +189,17 @@
 <tr><td>	198	</td><td>	尾鈴山	</td><td>	1405m	</td><td>		</td><td>		</td><td>		</td></tr>
 <tr><td>	199	</td><td>	高千穂峰	</td><td>	1574m	</td><td>		</td><td>		</td><td>		</td></tr>
 <tr><td>	200	</td><td>	桜島	</td><td>	1117m	</td><td>		</td><td>		</td><td>	火山規制中	</td></tr>
-			
+
                 </tbody>
             </table>
         </div>
     </div>
-    
+
     <div id="footer">
-        Copyright &copy; 2017-2018 <a href="../index.html" target="_blank">onlyzs</a> | All Rights Reserved 
+        Copyright &copy; 2017-2018 <a href="../index.html" target="_blank">onlyzs</a> | All Rights Reserved
     </div>
 
-    
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/tether.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
@@ -204,9 +207,9 @@
     <script src="assets/js/jquery.dataTables.min.js"></script>
     <script src="assets/js/dataTables.bootstrap4.min.js"></script>
     <script>
-    
 
-    
+
+
     $(document).ready(function() {
         $('#sort-table').DataTable({
             "bPaginate": false,
@@ -214,7 +217,7 @@
             "bAutoWidth": false,
             "bInfo": false,
         });
-        
+
     });
     </script>
 

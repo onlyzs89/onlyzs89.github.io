@@ -14,13 +14,13 @@
 
     <title>山行マップ</title>
     <link rel="shortcut icon" href="assets/img/favicon.ico">
-    
+
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
+
     <link href="assets/css/index.css" rel="stylesheet" type="text/css">
-    
+
         <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109227341-1"></script>
     <script>
@@ -44,6 +44,9 @@
           <li class="nav-item">
             <a class="nav-link" href="list.html">山行一覧</a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="plan.html">山行計画</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="list_100.html">百名山登頂記録</a>
           </li>
@@ -62,7 +65,7 @@
         </ul>
       </div>
     </nav>
-    
+
     <div>
       <svg></svg>
       <p class="copyright text-muted footer">Copyright &copy; 2017-2018 <a href="../index.html" target="_blank">onlyzs</a> | All Rights Reserved</p>
@@ -73,12 +76,12 @@
       </table>
     </div>
 
-    
+
     <!-- d3js -->
     <script src="assets/js/d3.min.js"></script>
     <script src="assets/js/topojson.v1.min.js"></script>
     <script src="assets/js/d3.tip.js"></script>
-    
+
     <!-- Bootstrap core JavaScript -->
     <script src="assets/js/tether.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
@@ -86,7 +89,7 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.csv.js"></script>
     <script src="assets/js/index.js"></script>
-    
+
     <script>
     //d3 init
     window.onresize = window_load;
@@ -94,8 +97,8 @@
     var width = window.innerWidth-7;
     var height = window.innerHeight-7;
 
-    var svg = d3.select("svg").attr("width", width).attr("height", height);  
-    
+    var svg = d3.select("svg").attr("width", width).attr("height", height);
+
     // background
     svg.append("defs")
       .append("pattern")
@@ -111,46 +114,46 @@
       .attr("width", "100%")
       .attr("height", "100%")
       .attr("fill", "url(#bg)");
-      
+
     var g = svg.append('g');
     var color20 = d3.scaleOrdinal(d3.schemeCategory20);
-    
-    var div = d3.select("body").append("div")	
-    .attr("class", "tooltip")				
+
+    var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
     .style("opacity", 0);
-    
+
     //scale ratio
-    var trans = d3.zoomTransform(self.svg.node()); 
-    
+    var trans = d3.zoomTransform(self.svg.node());
+
     // tip
     var tip = d3.tip().attr('class', 'd3-tip card').direction('s');
-    
+
     // center
     var mercator = d3.geoMercator()
         .center([137, 35])
         .translate([width/2, height/2])
         .scale(5000);
     var geopath = d3.geoPath().projection(mercator);
-      
+
     // svgのみをリサイズ
     function window_load(){
       width = window.innerWidth-7;
       height = window.innerHeight-7;
       svg.attr("width", width).attr("height", height);
     }
-    
+
     // csv
     $.get('assets/data/data.csv',function(data){
         var source = $.csv.toArrays(data);
-        
+
         // list
         var list = '<tbody>'
         $(source).each(function(){
-            list += '<tr class="list-item" id=' + this[0] + '><td>' + 
+            list += '<tr class="list-item" id=' + this[0] + '><td>' +
                     this[1] + '</td></tr>';
         });
         $("#list").html(list+'</tbody>');
-        
+
         // d3
         d3.json("assets/data/japan_topojson.json", function(error, jp) {
           // click event
@@ -158,12 +161,12 @@
               mercator.center([ d[3], d[2] ]);
               geopath.projection(mercator);
               map.attr("d", geopath);
-              
+
               trans.k=2;
               trans.x=-mercator([d[3], d[2]-0.1])[0];
               trans.y=-mercator([d[3], d[2]-0.1])[1];
               g.attr('transform', trans);
-              
+
               marks.attr('points', function(d){
                 var x=mercator([d[3], d[2]])[0];
                 var y=mercator([d[3], d[2]])[1];
@@ -178,7 +181,7 @@
                 return x+","+(y-r/Math.sqrt(3))+" "+(x+r/Math.sqrt(3))+","+(y+r/Math.sqrt(3)/2)+" "+(x-r/Math.sqrt(3))+","+(y+r/Math.sqrt(3)/2);
               })
               var strLen = d[1].length;
-              var text = 
+              var text =
                 '<div class="card-block"> \
                   <img class="card-img-top" src="https://s3-ap-northeast-1.amazonaws.com/onlyzs-gallery/mountains/'+d[0]+'.jpg"> \
                   <h4 class="card-title"><span style="font-size:'+(140-8*strLen)+'%">'+d[1]+' <span style="font-size:60%;">'+d[4]+'m</span></span></h4> \
@@ -186,11 +189,11 @@
                 </div>';
               tip.html(text).show(d,i);
           }
-          
+
           // mouse move event
           function showtip_mouseover(d,i){
               var strLen = d[1].length;
-              var text = 
+              var text =
                 '<div class="card-block"> \
                   <img class="card-img-top" src="https://s3-ap-northeast-1.amazonaws.com/onlyzs-gallery/mountains/'+d[0]+'.jpg"> \
                   <h4 class="card-title"><span style="font-size:'+(140-8*strLen)+'%">'+d[1]+' <span style="font-size:60%;">'+d[4]+'m</span></span></h4> \
@@ -198,7 +201,7 @@
                 </div>';
               tip.html(text).show(d,i);
           }
-        
+
           // map
           var geoJp = topojson.feature(jp, jp.objects.ne_10m_admin_1_states_provinces);
           var map = g.selectAll("path")
@@ -208,7 +211,7 @@
               .attr("d", geopath)
               .attr('fill', "black")
               .attr("fill-opacity", 0.6);
-          
+
           // marks
           var marks = g.selectAll("polygon")
               .data(source)
@@ -240,11 +243,11 @@
               .attr('id', function(d){return "maker_"+d[0];})
               .on('mouseover', showtip_mouseover)
               .on('click', showtip_click)
-              
-            map.call(tip)    
+
+            map.call(tip)
             svg.on('click', tip.hide);
-            
-            var zoom = d3.zoom().on('zoom', function(d){   
+
+            var zoom = d3.zoom().on('zoom', function(d){
               trans = d3.event.transform;
               g.attr('transform', trans);
               marks.attr('points', function(d){
@@ -264,20 +267,20 @@
             });
             svg.call(zoom);
         });
-        
+
         jQuery.fn.d3Click = function () {
           this.each(function (i, e) {
             var evt = new MouseEvent("click");
             e.dispatchEvent(evt);
           });
         };
-        
+
         $(".list-item").on('click',function(){
           $("#maker_"+$(this).attr("id")).d3Click();
         });
-            
+
     });
-    
+
     </script>
   </body>
 </html>
