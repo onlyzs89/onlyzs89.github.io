@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="山行一覧">
+    <meta name="author" content="Zhang-s">
+    <link rel="me" href="mailto:onlyzs1023@gmail.com">
+    <meta name="robots" content="百名山,ハイキング,登山,二百名山,三百名山,関東ふれあいの道,山,ブログ">
+    <meta name="googlebot" content="百名山,ハイキング,登山,二百名山,三百名山,関東ふれあいの道,山,ブログ">
+    <link rel="shortcut icon" href="assets/img/favicon.ico?">
+
+    <title>山行一覧</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109227341-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-109227341-1');
+    </script>
+
+    <style>
+    #footer {
+        background-color:#f7f7f7;
+        color:#000;
+        padding:20px 50px 20px 50px;
+        text-align:center;
+        margin-top:15px;
+    }
+
+    table {
+      color:#555555;
+    }
+    body{
+      min-width:300px;
+    }
+    </style>
+  </head>
+
+  <body background="assets/img/bg.png">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-faded" style="background-color:rgba(0,0,0,0.1);">
+      <a class="navbar-brand" href="index.html"><img src="assets/img/favicon.ico" width="25px" /> 登山記録</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">山行一覧 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="list_100.html">百名山登頂記録</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="list_200.html">二百名山登頂記録</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="list_300.html">三百名山登頂記録</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="trailroutes.html">関東ふれあいの道</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="others.html">その他</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="text-center" style="margin:20px">山行一覧</h2>
+
+        <div class="card">
+          <!-- nav -->
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="2019-tab" data-toggle="tab" href="#2019" role="tab" aria-controls="tab" aria-expanded="true">2019年</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="2018-tab" data-toggle="tab" href="#2018" role="tab" aria-controls="tab" aria-expanded="true">2018年</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="2017-tab" data-toggle="tab" href="#2017" role="tab" aria-controls="2017" aria-expanded="true">2017年</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="2016-tab" data-toggle="tab" href="#2016" role="tab" aria-controls="2016" aria-expanded="true">2016年</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="2015-tab" data-toggle="tab" href="#2015" role="tab" aria-controls="2015" aria-expanded="true">2015年</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="2014-tab" data-toggle="tab" href="#2014" role="tab" aria-controls="2014" aria-expanded="true">2014年以前</a>
+              </li>
+            </ul>
+          </div>
+
+        <div class="tab-content">
+
+            <!-- 2019 -->
+            <div class="tab-pane fade show active" id="2019" role="tabpanel" aria-labelledby="2019-tab"></div>
+
+            <!-- 2018 -->
+            <div class="tab-pane fade" id="2018" role="tabpanel" aria-labelledby="2018-tab"></div>
+
+            <!-- 2017 -->
+            <div class="tab-pane fade" id="2017" role="tabpanel" aria-labelledby="2017-tab"></div>
+
+            <!-- 2016 -->
+            <div class="tab-pane fade" id="2016" role="tabpanel" aria-labelledby="2016-tab"></div>
+
+            <!-- 2015 -->
+            <div class="tab-pane fade" id="2015" role="tabpanel" aria-labelledby="2015-tab"></div>
+
+            <!-- 2014 -->
+            <div class="tab-pane fade" id="2014" role="tabpanel" aria-labelledby="2014-tab"></div>
+       </div>
+    </div>
+</div>
+    <div id="footer">
+        Copyright &copy; 2017-2018 <a href="../index.html" target="_blank">onlyzs</a> | All Rights Reserved
+    </div>
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/tether.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/js/jquery.csv2table.js"></script>
+    <script>
+    $(function(){
+      $('#2019').csv2table('assets/data/list_2019.csv');
+      $('#2019-tab').on("click",function(){
+        $('#2019').csv2table('assets/data/list_2019.csv');
+        $('#2018').html();
+        $('#2017').html();
+        $('#2016').html();
+        $('#2015').html();
+        $('#2014').html();
+      });
+      $('#2018-tab').on("click",function(){
+        $('#2018').csv2table('assets/data/list_2018.csv');
+        $('#2019').html();
+        $('#2017').html();
+        $('#2016').html();
+        $('#2015').html();
+        $('#2014').html();
+      });
+      $('#2017-tab').on("click",function(){
+        $('#2017').csv2table('assets/data/list_2017.csv');
+        $('#2019').html();
+        $('#2018').html();
+        $('#2016').html();
+        $('#2015').html();
+        $('#2014').html();
+      });
+      $('#2016-tab').on("click",function(){
+        $('#2016').csv2table('assets/data/list_2016.csv');
+        $('#2019').html();
+        $('#2017').html();
+        $('#2018').html();
+        $('#2015').html();
+        $('#2014').html();
+      });
+      $('#2015-tab').on("click",function(){
+        $('#2015').csv2table('assets/data/list_2015.csv');
+        $('#2019').html();
+        $('#2017').html();
+        $('#2016').html();
+        $('#2018').html();
+        $('#2014').html();
+      });
+      $('#2014-tab').on("click",function(){
+        $('#2014').csv2table('assets/data/list_2014.csv');
+        $('#2019').html();
+        $('#2017').html();
+        $('#2016').html();
+        $('#2015').html();
+        $('#2018').html();
+      });
+    });
+    </script>
+
+  </body>
+</html>
