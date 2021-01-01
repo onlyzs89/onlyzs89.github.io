@@ -65,14 +65,17 @@
 
     <div class="container">
         <h2 class="text-center" style="margin:20px">山行一覧
-        <span  style="font-size:60%;"> [<a href="https://onlyzs89.github.io/onlyzs89_gsimaps/#9/36.062318/138.701051/&base=std&base_grayscale=1&ls=std%2C0.8%7Cold%7C201512%7C201511%7C201510%7C201509%7C201508%7C201507%7C201506%7C201505%7C201504%7C201501%7C201601%7C201602%7C201603%7C201604%7C201605%7C201606%7C201607%7C201608%7C201609%7C201610%7C201611%7C201612%7C201702%7C201703%7C201704%7C201705%7C201706%7C201707%7C201708%7C201709%7C201710%7C201711%7C201712%7C201801%7C201802%7C201803%7C201805%7C201804%7C201806%7C201807%7C201808%7C201809%7C201810%7C201811%7C201812%7C201901%7C201902%7C201903%7C201904%7C201905%7C201906%7C201907%7C201908%7C201909%7C201910%7C201911%7C201912%7C202001%7C202002%7C202003%7C202004%7C202005%7C202006%7C202007%7C202008%7C202009%7C202010%7C202011%7C202012&disp=11111111111111111111111111111111111111111111111111111111111111111111111&lcd=202012&vs=c1j0h0k0l0u0t0z0r0s0f0" target="_blank">地図</a>] </span></h2>
+        <span  style="font-size:60%;"> [<a href="https://onlyzs89.github.io/onlyzs89_gsimaps/#9/36.037986/138.521451/&base=std&base_grayscale=1&ls=std%2C0.8%7Cold%7C201512%7C201511%7C201510%7C201509%7C201508%7C201507%7C201506%7C201505%7C201504%7C201501%7C201601%7C201602%7C201603%7C201604%7C201605%7C201606%7C201607%7C201608%7C201609%7C201610%7C201611%7C201612%7C201702%7C201703%7C201704%7C201705%7C201706%7C201707%7C201708%7C201709%7C201710%7C201711%7C201712%7C201801%7C201802%7C201803%7C201805%7C201804%7C201806%7C201807%7C201808%7C201809%7C201810%7C201811%7C201812%7C201901%7C201902%7C201903%7C201904%7C201905%7C201906%7C201907%7C201908%7C201909%7C201910%7C201911%7C201912%7C202001%7C202002%7C202003%7C202004%7C202005%7C202006%7C202007%7C202008%7C202009%7C202010%7C202011%7C202012%7C202101&disp=111111111111111111111111111111111111111111111111111111111111111111111111&lcd=202101&vs=c1j0h0k0l0u0t0z0r0s0f0" target="_blank">地図</a>] </span></h2>
 
         <div class="card">
           <!-- nav -->
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" id="2020-tab" data-toggle="tab" href="#2020" role="tab" aria-controls="tab" aria-expanded="true">2020年</a>
+                <a class="nav-link active" id="2021-tab" data-toggle="tab" href="#2021" role="tab" aria-controls="tab" aria-expanded="true">2021年</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="2020-tab" data-toggle="tab" href="#2020" role="tab" aria-controls="tab" aria-expanded="true">2020年</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="2019-tab" data-toggle="tab" href="#2019" role="tab" aria-controls="tab" aria-expanded="true">2019年</a>
@@ -97,8 +100,11 @@
 
         <div class="tab-content">
 
+            <!-- 20２1 -->
+            <div class="tab-pane fade show active" id="2021" role="tabpanel" aria-labelledby="2021-tab"></div>
+
             <!-- 20２０ -->
-            <div class="tab-pane fade show active" id="2020" role="tabpanel" aria-labelledby="2020-tab"></div>
+            <div class="tab-pane fade" id="2020" role="tabpanel" aria-labelledby="2020-tab"></div>
 
             <!-- 2019 -->
             <div class="tab-pane fade" id="2019" role="tabpanel" aria-labelledby="2019-tab"></div>
@@ -134,9 +140,20 @@
     <script src="assets/js/jquery.csv2table.js"></script>
     <script>
     $(function(){
-      $('#2020').csv2table('assets/data/list_2020.csv');
+      $('#2021').csv2table('assets/data/list_2021.csv');
+      $('#2021-tab').on("click",function(){
+        $('#2021').csv2table('assets/data/list_2021.csv');
+        $('#2020').hide();
+        $('#2019').hide();
+        $('#2018').hide();
+        $('#2017').hide();
+        $('#2016').hide();
+        $('#2015').hide();
+        $('#2014').hide();
+      });
       $('#2020-tab').on("click",function(){
         $('#2020').csv2table('assets/data/list_2020.csv');
+        $('#2021').hide();
         $('#2019').hide();
         $('#2018').hide();
         $('#2017').hide();
@@ -146,6 +163,7 @@
       });
       $('#2019-tab').on("click",function(){
         $('#2019').csv2table('assets/data/list_2019.csv');
+        $('#2021').hide();
         $('#2020').hide();
         $('#2018').hide();
         $('#2017').hide();
@@ -155,6 +173,7 @@
       });
       $('#2018-tab').on("click",function(){
         $('#2018').csv2table('assets/data/list_2018.csv');
+        $('#2021').hide();
         $('#2020').hide();
         $('#2019').hide();
         $('#2017').hide();
@@ -164,6 +183,7 @@
       });
       $('#2017-tab').on("click",function(){
         $('#2017').csv2table('assets/data/list_2017.csv');
+        $('#2021').hide();
         $('#2020').hide();
         $('#2019').hide();
         $('#2018').hide();
@@ -173,6 +193,7 @@
       });
       $('#2016-tab').on("click",function(){
         $('#2016').csv2table('assets/data/list_2016.csv');
+        $('#2021').hide();
         $('#2020').hide();
         $('#2019').hide();
         $('#2017').hide();
@@ -182,6 +203,7 @@
       });
       $('#2015-tab').on("click",function(){
         $('#2015').csv2table('assets/data/list_2015.csv');
+        $('#2021').hide();
         $('#2020').hide();
         $('#2019').hide();
         $('#2017').hide();
@@ -191,6 +213,7 @@
       });
       $('#2014-tab').on("click",function(){
         $('#2014').csv2table('assets/data/list_2014.csv');
+        $('#2021').hide();
         $('#2020').hide();
         $('#2019').hide();
         $('#2017').hide();
