@@ -72,7 +72,10 @@
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" id="2022-tab" data-toggle="tab" href="#2022" role="tab" aria-controls="tab" aria-expanded="true">2022年</a>
+                <a class="nav-link active" id="2023-tab" data-toggle="tab" href="#2023" role="tab" aria-controls="tab" aria-expanded="true">2023年</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="2022-tab" data-toggle="tab" href="#2022" role="tab" aria-controls="tab" aria-expanded="true">2022年</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="2021-tab" data-toggle="tab" href="#2021" role="tab" aria-controls="tab" aria-expanded="true">2021年</a>
@@ -146,9 +149,22 @@
     <script src="assets/js/jquery.csv2table.js"></script>
     <script>
     $(function(){
-      $('#2022').csv2table('assets/data/list_2022.csv');
+      $('#2023').csv2table('assets/data/list_2023.csv');
+      $('#2023-tab').on("click",function(){
+        $('#2023').csv2table('assets/data/list_2023.csv');
+        $('#2022').hide();
+        $('#2021').hide();
+        $('#2020').hide();
+        $('#2019').hide();
+        $('#2018').hide();
+        $('#2017').hide();
+        $('#2016').hide();
+        $('#2015').hide();
+        $('#2014').hide();
+      });
       $('#2022-tab').on("click",function(){
         $('#2022').csv2table('assets/data/list_2022.csv');
+        $('#2023').hide();
         $('#2021').hide();
         $('#2020').hide();
         $('#2019').hide();
@@ -160,6 +176,7 @@
       });
       $('#2021-tab').on("click",function(){
         $('#2021').csv2table('assets/data/list_2021.csv');
+        $('#2023').hide();
         $('#2022').hide();
         $('#2020').hide();
         $('#2019').hide();
@@ -171,6 +188,7 @@
       });
       $('#2020-tab').on("click",function(){
         $('#2020').csv2table('assets/data/list_2020.csv');
+        $('#2023').hide();
         $('#2022').hide();
         $('#2021').hide();
         $('#2019').hide();
@@ -182,6 +200,7 @@
       });
       $('#2019-tab').on("click",function(){
         $('#2019').csv2table('assets/data/list_2019.csv');
+        $('#2023').hide();
         $('#2022').hide();
         $('#2021').hide();
         $('#2020').hide();
@@ -193,6 +212,7 @@
       });
       $('#2018-tab').on("click",function(){
         $('#2018').csv2table('assets/data/list_2018.csv');
+        $('#2023').hide();
         $('#2022').hide();
         $('#2021').hide();
         $('#2020').hide();
@@ -204,6 +224,7 @@
       });
       $('#2017-tab').on("click",function(){
         $('#2017').csv2table('assets/data/list_2017.csv');
+        $('#2023').hide();
         $('#2022').hide();
         $('#2021').hide();
         $('#2020').hide();
@@ -215,6 +236,7 @@
       });
       $('#2016-tab').on("click",function(){
         $('#2016').csv2table('assets/data/list_2016.csv');
+        $('#2023').hide();
         $('#2022').hide();
         $('#2021').hide();
         $('#2020').hide();
@@ -226,6 +248,7 @@
       });
       $('#2015-tab').on("click",function(){
         $('#2015').csv2table('assets/data/list_2015.csv');
+        $('#2023').hide();
         $('#2022').hide();
         $('#2021').hide();
         $('#2020').hide();
@@ -237,6 +260,7 @@
       });
       $('#2014-tab').on("click",function(){
         $('#2014').csv2table('assets/data/list_2014.csv');
+        $('#2023').hide();
         $('#2022').hide();
         $('#2021').hide();
         $('#2020').hide();
